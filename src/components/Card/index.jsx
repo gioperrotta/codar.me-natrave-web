@@ -46,6 +46,8 @@ export const Card = ({disabled, gameId, homeTeam, awayTeam, gameTime, homeTeamSc
         <input
           className="bg-red-300/[0.2] w-12 h-12 text-red-700 text-xl text-center"
           type="number"
+          min= "0"
+          max= "15"
           name="homeTeamScore"
           value={formiK.values.homeTeamScore}
           onChange={formiK.handleChange}
@@ -58,6 +60,8 @@ export const Card = ({disabled, gameId, homeTeam, awayTeam, gameTime, homeTeamSc
         <input
           className="bg-red-300/[0.2] w-12 h-12 text-red-700 text-xl text-center"
           type="number"
+          min= "0"
+          max= "15"
           name="awayTeamScore"
           value={formiK.values.awayTeamScore}
           onChange={formiK.handleChange}

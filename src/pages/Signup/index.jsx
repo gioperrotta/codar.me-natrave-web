@@ -26,7 +26,18 @@ export function Signup() {
         data: values
       })
 
-      // localStorage.setItem('auth', JSON.stringify(res.data))
+      if (res.data.id) {
+        const res = await axios({
+          method: 'get',
+          baseURL: import.meta.env.VITE_API_URL,
+          url: '/login',
+          auth: {
+            username: values.email,
+            password: values.password
+          }
+        })
+        setAuth(res.data)
+      }
 
     },
     initialValues: {

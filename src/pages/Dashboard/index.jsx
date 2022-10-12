@@ -50,11 +50,8 @@ export function Dashboard() {
   }
 
   useEffect(() => {
-    fetchHunches()
-  }, [])
-
-  useEffect(() => {
     fetchGames({ gameTime: currentDate })
+    fetchHunches()
   }, [currentDate])
 
   return (
@@ -75,7 +72,7 @@ export function Dashboard() {
       <main className="space-y-6">
         <section id="header" className=" bg-red-500 text-white">
           <div className="container max-w-3xl space-y-2  p-4 ">
-            <span className="">Olá Giovanni</span>
+            <span className="">{`Olá ${auth?.user?.name}`}</span>
             <h3 className="text-2xl font-bold">Qual é 0 seu palpite?</h3>
           </div>
         </section>
@@ -95,8 +92,8 @@ export function Dashboard() {
                   homeTeam={game.homeTeam}
                   awayTeam={game.awayTeam}
                   gameTime={format(new Date(game.gameTime), 'H:mm')}
-                  homeTeamScore={hunches?.value?.[game.id]?.homeTeamScore || ''}
-                  awayTeamScore={hunches?.value?.[game.id]?.awayTeamScore || ''}
+                  homeTeamScore={hunches?.value?.[game.id]?.homeTeamScore || 0}
+                  awayTeamScore={hunches?.value?.[game.id]?.awayTeamScore || 0}
                 />
             ))}
           </div>
